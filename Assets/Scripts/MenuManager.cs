@@ -41,6 +41,11 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    public void LoadHighScores()
+    {
+        SceneManager.LoadScene("High Scores");
+    }
+
     public void ExitApplication()
     {
 #if UNITY_EDITOR
