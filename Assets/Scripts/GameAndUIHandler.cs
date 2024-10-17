@@ -44,6 +44,7 @@ public class GameAndUIHandler : MonoBehaviour
         }
     }
 
+    // maybe use it in DataManager ???
     public void SetBestScore(int score)
     {
         if (score > bestScore)
@@ -51,11 +52,12 @@ public class GameAndUIHandler : MonoBehaviour
             bestScore = score;
             bestName = playerName;
             SaveGameInfo();
-            MainManager.Instance.BestScoreText.text = "Best Score: " + bestName + " : " + bestScore;
+            //MainManager.Instance.BestScoreText.text = "Best Score: " + bestName + " : " + bestScore;
         }
         Debug.Log("Score: " + score + ", Player: " + playerName);
     }
 
+    // maybe use this in MenuManager ????
     public void StartNew()
     {
         if (iField.text != "")
@@ -69,6 +71,7 @@ public class GameAndUIHandler : MonoBehaviour
         }
     }
 
+    // maybe use this in MenuManager ????
     public void Exit()
     {
         // uuuuuuuhhhhhh
@@ -79,6 +82,7 @@ public class GameAndUIHandler : MonoBehaviour
 #endif
     }
 
+    // maybe ALSO use this in DataManager ???
     [System.Serializable]
     class SaveData
     {

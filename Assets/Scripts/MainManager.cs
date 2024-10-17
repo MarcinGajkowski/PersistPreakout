@@ -12,32 +12,14 @@ public class MainManager : MonoBehaviour
 
     public Text ScoreText;
     public Text BestScoreText;
+    public Text CurrentNameText;
     public GameObject GameOverText;
+    public Button ReturnToMenuButton;
     
     private bool m_Started = false;
     private int m_Points;
     
     private bool m_GameOver = false;
-
-    public static MainManager Instance;
-
-    public string playerName;
-
-    private void Awake()
-    {
-        if (Instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-
-        GameAndUIHandler.Instance.LoadGameInfo();
-        BestScoreText.text = "Best Score: " + GameAndUIHandler.Instance.bestName + " : " + GameAndUIHandler.Instance.bestScore;
-    }
-
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +37,13 @@ public class MainManager : MonoBehaviour
                 brick.PointValue = pointCountArray[i];
                 brick.onDestroyed.AddListener(AddPoint);
             }
+        }
+
+        // Set the UI text for current users name and the previous high score and usernam UI.
+        if (DataManager.Instance != null)
+        {
+            CurrentNameText.text = $"Name: {DataManager.Instance.UserName}";
+            UpdateHighScoreText();
         }
     }
 
@@ -88,10 +77,36 @@ public class MainManager : MonoBehaviour
         ScoreText.text = $"Score : {m_Points}";
     }
 
+    //public void GameOver()
+    //{
+    //    GameAndUIHandler.Instance.SetBestScore(m_Points);
+    //    m_GameOver = true;
+    //    GameOverText.SetActive(true);
+    //}
+
     public void GameOver()
     {
-        GameAndUIHandler.Instance.SetBestScore(m_Points);
         m_GameOver = true;
         GameOverText.SetActive(true);
+        ReturnToMenuButton.gameObject.SetActive(true);
+        if (DataManager.Instance != null)
+        {
+            // Will only allow the new highscore to be set if the current points are greater.
+            DataManager.Instance.SetHighScore(m_Points);
+            UpdateHighScoreText();
+
+            // Adds the highscore to the top ten leaderboards if it is within those scores.
+            DataManager.Instance.UpdateTopTenScores(m_Points);
+        }
+    }
+
+    void UpdateHighScoreText()
+    {
+        BestScoreText.text = $"Best Score : {DataManager.Instance.HighestScorerUserName} : {DataManager.Instance.HighScore}";
+    }
+
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene("Start Menu");
     }
 }
