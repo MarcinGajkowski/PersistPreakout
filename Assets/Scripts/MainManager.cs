@@ -90,9 +90,8 @@ public class MainManager : MonoBehaviour
 
     public void GameOver()
     {
-        m_GameOver = true;
-        //BestScoreText.text = $"Best Score : {NameManager.Instance.playerName} : {m_Points}";
         GameAndUIHandler.Instance.SetBestScore(m_Points);
+        m_GameOver = true;
         GameOverText.SetActive(true);
     }
 }

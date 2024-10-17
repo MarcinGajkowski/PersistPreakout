@@ -594,8 +594,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1847509198}
-        m_TargetAssemblyTypeName: MenuUIHandler, Assembly-CSharp
+      - m_Target: {fileID: 1207230207}
+        m_TargetAssemblyTypeName: GameAndUIHandler, Assembly-CSharp
         m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
@@ -871,6 +871,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885755497}
   m_CullTransparentMesh: 1
+--- !u!1 &1207230206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1207230208}
+  - component: {fileID: 1207230207}
+  m_Layer: 0
+  m_Name: GameHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1207230207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207230206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62cf0e9f2265e164bbe53b7249b74b91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bestScoreText: {fileID: 1286265322}
+  iField: {fileID: 1761677156}
+  playerName: 
+  bestName: 
+  bestScore: 0
+--- !u!4 &1207230208
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207230206}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 533.875, y: 212.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1286265320
 GameObject:
   m_ObjectHideFlags: 0
@@ -1243,8 +1291,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1847509198}
-        m_TargetAssemblyTypeName: MenuUIHandler, Assembly-CSharp
+      - m_Target: {fileID: 1207230207}
+        m_TargetAssemblyTypeName: GameAndUIHandler, Assembly-CSharp
         m_MethodName: StartNew
         m_Mode: 1
         m_Arguments:
@@ -1480,7 +1528,6 @@ GameObject:
   - component: {fileID: 1847509196}
   - component: {fileID: 1847509195}
   - component: {fileID: 1847509194}
-  - component: {fileID: 1847509198}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1572,23 +1619,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1847509198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1847509193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62cf0e9f2265e164bbe53b7249b74b91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bestScoreText: {fileID: 1286265322}
-  iField: {fileID: 1761677156}
-  playerName: 
-  bestName: 
-  bestScore: 0
 --- !u!1 &2041225310
 GameObject:
   m_ObjectHideFlags: 0
